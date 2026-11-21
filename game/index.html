@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Velvet Hour — a stealth game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="stage">
+  <header class="hud-top">
+    <div class="brand">THE VELVET HOUR</div>
+    <div class="level" id="hud-level">Level 1 — The Marble Hall</div>
+    <div class="stats">
+      <span id="hud-gems">◆ 0/3</span>
+      <span id="hud-coins">● 3</span>
+      <span id="hud-time">00:00</span>
+      <span id="hud-score">Score 0</span>
+    </div>
+  </header>
+  <div class="hud-mid">
+    <span id="hud-alarm" class="alarm calm">✓ Unseen</span>
+    <span id="hud-objective">Pocket all 3 moon-gems, then reach the EXIT</span>
+    <span id="hud-noise">NOISE: quiet</span>
+  </div>
+  <div class="canvas-wrap">
+    <canvas id="game-canvas" width="960" height="600"></canvas>
+    <div id="message" class="message"></div>
+
+    <div id="overlay-title" class="overlay">
+      <h1>THE VELVET HOUR</h1>
+      <p class="tagline">A cat burglar. A sleeping museum. Three halls of moon-gems.</p>
+      <p>You are <strong>Wren</strong>, and tonight the Marrowgate Museum is yours — if no warden
+      ever sees you. Slip through the yellow vision cones, hide in the bushes, toss a coin
+      to pull a guard away, and reach the green exit with every gem in your pocket.</p>
+      <ul class="howto">
+        <li><strong>WASD / arrows</strong> — move</li>
+        <li><strong>Shift</strong> — run (loud! wardens hear it)</li>
+        <li><strong>C / Ctrl</strong> — sneak (slow, quiet, harder to spot)</li>
+        <li><strong>Click</strong> — toss a coin, lure a warden to the clink</li>
+        <li><strong>P</strong> pause · <strong>M</strong> mute · <strong>R</strong> retry level</li>
+      </ul>
+      <p class="hint">Seen once, you can still recover — break line of sight and hide.
+      Spotted twice in a row, the whole hall hunts you. Never spotted at all? +500 Ghost bonus.</p>
+      <button id="btn-start" class="big-btn">Begin the heist</button>
+    </div>
+
+    <div id="overlay-pause" class="overlay hidden">
+      <h1>Paused</h1>
+      <p>The museum holds its breath.</p>
+      <button id="btn-resume" class="big-btn">Resume</button>
+    </div>
+
+    <div id="overlay-caught" class="overlay hidden">
+      <h1>CAUGHT!</h1>
+      <p>A warden's lamp found you in the dark. The night is not over — try the hall again.</p>
+      <button id="btn-retry" class="big-btn">Retry this level</button>
+    </div>
+
+    <div id="overlay-clear" class="overlay hidden">
+      <h1>Hall cleared — unseen!</h1>
+      <div id="clear-stats"></div>
+      <button id="btn-next-level" class="big-btn">Next level →</button>
+    </div>
+
+    <div id="overlay-win" class="overlay hidden">
+      <h1>THE VELVET HOUR IS YOURS</h1>
+      <div id="win-stats"></div>
+      <button id="btn-play-again" class="big-btn">Steal it all again</button>
+    </div>
+  </div>
+  <footer class="hud-bottom">
+    <span>WASD move · Shift run (loud) · C sneak · Click toss a coin · P pause · M mute</span>
+    <button id="btn-mute" class="mute-btn">🔊 Sound on</button>
+  </footer>
+</main>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
